@@ -22,6 +22,8 @@ wss.on("connection", function connection(ws) {
 
 server.on("upgrade", (request, socket, head) => {
 
+  console.log(request.connection.localAddress);
+
   if (request.headers.upgrade.toLowerCase() !== "websocket") {
     socket.end("HTTP/1.1 200 OK\r\n\r\n");
     return;
@@ -47,4 +49,4 @@ wss.on("error", (error) => {
 
 server.listen(process.env.PORT || 5000)
 
-console.log(process.env.PORT, server.address());
+console.log(process.env.PORT, server.address().address);
