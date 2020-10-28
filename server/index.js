@@ -47,4 +47,4 @@ wss.on("error", (error) => {
   console.log("Error: ", error);
 });
 
-server.listen();
+server.listen(7727);
