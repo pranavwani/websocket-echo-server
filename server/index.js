@@ -13,6 +13,8 @@ const server = http.createServer(
 // }
 );
 
+console.log("test");
+
 const wss = new WebSocket.Server({ noServer: true });
 
 wss.on("connection", function connection(ws) {
