@@ -10,7 +10,7 @@ const results = Object.create(null); // or just '{}', an empty object
 
 for (const name of Object.keys(nets)) {
     for (const net of nets[name]) {
-      console.log(net, nets[name]);
+      console.log(net);
         // skip over non-ipv4 and internal (i.e. 127.0.0.1) addresses
         if (net.family === 'IPv4' && !net.internal) {
             if (!results[name]) {
@@ -19,6 +19,13 @@ for (const name of Object.keys(nets)) {
 
             results[name].push(net.address);
         }
+        if (net.family === 'IPv6' && !net.internal) {
+          if (!results[name]) {
+              results[name] = [];
+          }
+
+          results[name].push(net.address);
+      }
     }
 }
 
