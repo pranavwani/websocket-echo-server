@@ -47,4 +47,6 @@ wss.on("error", (error) => {
   console.log("Error: ", error);
 });
 
-server.listen(7727);
+server.listen(process.env.PORT || 5000)
+
+console.log(process.env.PORT);
