@@ -21,6 +21,8 @@ for (const name of Object.keys(nets)) {
     }
 }
 
+console.log(results);
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const server = http.createServer(
